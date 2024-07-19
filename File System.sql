@@ -1,10 +1,5 @@
--- Create the database
 CREATE DATABASE FileSystem;
-
--- Use the database
 USE FileSystem;
-
--- Create the FileSystem table
 CREATE TABLE FileSystem (
     NodeID INT PRIMARY KEY,
     NodeName VARCHAR(255),
@@ -12,7 +7,7 @@ CREATE TABLE FileSystem (
     SizeBytes INT
 );
 
--- Insert sample data into the FileSystem table
+
 INSERT INTO FileSystem (NodeID, NodeName, ParentID, SizeBytes) VALUES
 (1, 'Document', NULL, NULL),
 (2, 'Pictures', NULL, NULL),
@@ -25,7 +20,7 @@ INSERT INTO FileSystem (NodeID, NodeName, ParentID, SizeBytes) VALUES
 (9, 'Folder2', 2, NULL),
 (10, 'File4.txt', 9, 250);
 
--- Query to calculate the total size of each folder and its subfolders
+
 WITH RECURSIVE FileSystemCTE AS (
     SELECT 
         NodeID,
